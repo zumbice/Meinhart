@@ -1,26 +1,29 @@
 $(function(){
-    "use strict";
+	"use strict";
 	function newRow(){
-        var row = "<li class='item'><input type='text' /><input type='text' class='cabelPrice' /><input type='text' class='metalContent' /><select name='metalType'><option value='Cu'>Cu</option><option value='Al'>Al</option></select><input type='text' class='cutPrice' /><input type='checkbox' class='midship' name='midship'><span class='articlePrice priceArticle'></span><span class='articlePrice pricePlate'></span></li>";
-        return row;    
+		var row = "<li class='item'><input type='text' /><input type='text' class='cabelPrice' /><input type='text' class='metalContent' /><select name='metalType'><option value='Cu'>Cu</option><option value='Al'>Al</option></select><input type='text' class='cutPrice' /><input type='checkbox' class='midship' name='midship'><span class='articlePrice priceArticle'></span><span class='articlePrice pricePlate'></span></li>";
+		return row;    
 	}
 
-    var dotToComma = function ( withComa ) {
+	// function for dot and comma change
+	var dotToComma = function ( withComa ) {
 		return withComa.replace(/,/, '.'); 
 	};
-		
-    function Total(){
-        var totalCost = 0;
-        this.addTotal = function(total){
-            totalCost += parseFloat(total);
-        };
-        this.getTotal = function(){
-            return totalCost.toFixed(2);
-        };
-    }
 	
+	// constructor for total price	
+	function Total(){
+		var totalCost = 0;
+		this.addTotal = function(total){
+			totalCost += parseFloat(total);
+		};
+		this.getTotal = function(){
+			return totalCost.toFixed(2);
+		};
+	}
+	
+	// base item constructor for one article
 	function Item(price, content, type, length, check){
-        var cabelPrice = price,
+		var cabelPrice = price,
 			metalContent = content,
 			metalType = type,
 			cutLength = length,
@@ -45,60 +48,70 @@ $(function(){
 			}
 		
 		this.getPrice = function(){
-            var basePrice = 0;
-            if(metalType === "Cu"){
-                basePrice = (((metalContent * usrCfg.surchargeCopper) + cabelPrice) / 1000) * usrCfg.euroRate;
-                return parseFloat(basePrice.toFixed(2));
-            }else{
-                basePrice = (((metalContent * usrCfg.surchargeAluminium) + cabelPrice) / 1000) * usrCfg.euroRate;
-                return parseFloat(basePrice.toFixed(2));
-            }
-        };
+			var basePrice = 0;
+			if(metalType === "Cu"){
+				basePrice = (((metalContent * usrCfg.surchargeCopper) + cabelPrice) / 1000) * usrCfg.euroRate;
+				return parseFloat(basePrice.toFixed(2));
+			}else{
+				basePrice = (((metalContent * usrCfg.surchargeAluminium) + cabelPrice) / 1000) * usrCfg.euroRate;
+				return parseFloat(basePrice.toFixed(2));
+			}
+		};
 		
-        this.getPriceWithShipping = function(price){
-            return parseFloat((price * ((usrCfg.shipping / 100) + 1)).toFixed(2));
-        };
+		this.getPriceWithShipping = function(price){
+			return parseFloat((price * ((usrCfg.shipping / 100) + 1)).toFixed(2));
+		};
 		
-        this.setCuttingLength = function(){
-            if (isChecked === true){
-                return 25;
-            }else{
-                return 100;
-            }
-        };
+		this.setCuttingLength = function(){
+			if (isChecked === true){
+				return 25;
+			}else{
+				return 100;
+			}
+		};
 		
-        this.getPriceWithCut = function(){
-            var cutFee = 0,
-                priceWithCut = 0;
-            if(cutLength > 0 && cutLength < this.setCuttingLength()){
-                cutFee = ((usrCfg.cutPrice * usrCfg.euroRate) / cutLength);
-                priceWithCut = (this.getPrice() + cutFee).toFixed(2);
-                return priceWithCut;
-            }else{
-                priceWithCut = (this.getPrice()).toFixed(2);
-                return priceWithCut;
-            }
-        };
-    } // end Item
+		this.getPriceWithCut = function(){
+			var cutFee = 0,
+				priceWithCut = 0;
+			if(cutLength > 0 && cutLength < this.setCuttingLength()){
+				cutFee = ((usrCfg.cutPrice * usrCfg.euroRate) / cutLength);
+				priceWithCut = (this.getPrice() + cutFee).toFixed(2);
+				return priceWithCut;
+			}else{
+				priceWithCut = (this.getPrice()).toFixed(2);
+				return priceWithCut;
+			}
+		};
+	} // end Item
 
-	//////////////////////////////////
-    $('.articleList').append(newRow());
 	
-    $('#buttonNextRow').on("click", function(){
-        $('.item:last').after(newRow);
-            $('.item:last').hide().fadeIn(300);
-    });
+
+	/*magical things happen down there
+	--------------------------------*/
+
+	// first row
+	$('.articleList').append(newRow());
 	
+
+	// add new row
+	$('#buttonNextRow').on("click", function(){
+		$('.item:last').after(newRow);
+			$('.item:last').hide().fadeIn(300);
+	});
+	
+
+	// delete row
 	$('#buttonDelRow').on("click", function(){
-        var ulLength = $('li.item').length;
+		var ulLength = $('li.item').length;
 		console.log(ulLength);
 		if( ulLength > 1){
 			$('.item:last').fadeOut(300, function(){
 				$(this).remove();
 			});
 		}
-    });
+	});
 	
+	// control input data and price calculation
 	$('#buttonGetPrice').on("click", function(){
 		var totalCost = new Total();
 			
@@ -138,8 +151,10 @@ $(function(){
 
 		$('span.priceTotal').html(totalCost.getTotal()+' Kč'); 
 		
-    });
+	});
 	
+
+	// help stuff
 	$('#help-mark').on("click", function(){
 		var display = $('#help').css('display');
 		if (display === "none"){
