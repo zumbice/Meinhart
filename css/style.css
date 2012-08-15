@@ -1,0 +1,337 @@
+/*====================CSS RESET====================*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.4;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*=======================BASIC LAYOUT========================*/
+
+body {
+	background: #faf8ca;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	position: relative;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header h1{
+	
+	text-transform:uppercase;
+	margin: 30px 0 0 0;
+	font-size: 2.5em;	
+	color: #267dde;
+	text-shadow: 1px 1px 1px #7A7A7A;
+/*	filter: dropshadow(color=#0a3464, offx=1, offy=1);*/
+}
+
+label, span, h2{
+	font-size: 0.90em;
+	color: #267dde;
+	text-shadow: 1px 1px 1px #D1D1D1;
+}
+
+p {
+	padding: 10px 0 30px 0;
+	font-size: 0.80em;
+	color: #267dde;
+}
+
+#buttonNextRow {
+	margin-top:20px;
+}
+
+div.constants {
+	margin: 20px 0 30px 0;
+}
+
+.constants label{
+	display: inline-block;
+	width: 100px;
+	padding:0 10px;
+}
+
+span.constants_text {
+	display: inline-block;
+	width: 50px;
+}
+
+
+#separator{
+	margin: 15px 0 0 0;
+	width: 100%;
+	height: 1px;
+	background: #267dde;
+	-webkit-box-shadow: 0 1px 1px 1px #EBEBEB;
+	   -moz-box-shadow: 0 1px 1px 1px #EBEBEB;
+	        box-shadow: 0 1px 1px 1px #EBEBEB;
+}
+
+
+div#namePlates{
+	height: 30px;
+	width:960px;
+	color: #267dde;
+}
+
+span.namePlates {
+	display:block;
+	width: 110px;
+	margin-top: 10px;
+	text-align: center;
+	float: left;
+}
+
+span.cutPlate {
+	padding: 0 0 0 50px; 
+}
+
+span.pricePlate {
+	width: 120px;
+	text-align: center;
+	float:right;
+}
+span.priceArticle{
+	width: 120px;
+	text-align: center;
+	float:right;
+}
+span.articlePrice {
+	float: right;
+	padding: 5px 0;
+}
+
+span.priceTotalPlate, span.priceTotal {
+	float: right;
+}
+
+span.priceTotal{
+	font-weight: 600;
+}
+
+li.item {
+	padding: 4px 4px;
+	height:30px;
+}
+
+li.item:hover {
+	background: rgba(226, 223, 144, 0.4);
+	 border-radius: 4px;
+    -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+ 
+  -webkit-transition: background 0,01s ease;
+	 -moz-transition: background 0,01s ease;
+	  -ms-transition: background 0,01s ease;
+	   -o-transition: background 0,01s ease;
+		  transition: background 0,01s ease;
+}
+.error{
+	background: rgba(255, 0, 0, 0.6);
+	 border-radius: 4px;
+    -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+ 
+  -webkit-transition: background 0,01s ease;
+	 -moz-transition: background 0,01s ease;
+	  -ms-transition: background 0,01s ease;
+	   -o-transition: background 0,01s ease;
+		  transition: background 0,01s ease;
+}
+
+select {
+	padding-bottom:1px;
+	padding: 3px 0;
+	border: 1px solid #d9d56f;
+	 border-radius: 4px;
+    -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+}
+input {
+	margin: 2px;
+	padding: 4px 0;
+	text-align: center;
+	width: 105px;
+	border: 1px solid #d9d56f;
+	 border-radius: 4px;
+    -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+}
+
+input:hover,
+input:focus,
+select:hover,
+select:focus{
+	border-color: rgba(38, 125, 222, 1);
+	outline: 0;
+	outline: thin dotted \9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -webkit-transition: outline 0,01s ease;
+	 -moz-transition: outline 0,01s ease;
+	  -ms-transition: outline 0,01s ease;
+	   -o-transition: outline 0,01s ease;
+		  transition: outline 0,01s ease;
+}
+
+.input-error{
+	border-color: rgba(222, 0, 0, 1);
+	 -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(222, 0, 0, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(222, 0, 0, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(222, 0, 0, 0.6);
+}
+
+input.cutPrice {
+
+}
+
+input.midship {
+	width: 65px;	
+}
+
+span.midship {
+	width: 75px;
+}
+
+button#buttonNextRow,
+button#buttonGetPrice,
+button#buttonDelRow,
+button.cutPrice{
+    background-color: #267dde;
+    background: -webkit-gradient(linear, left top, left bottom, from(#267dde), to(#1262bc));
+    background: -webkit-linear-gradient(top, #267dde, #1262bc);
+    background: -moz-linear-gradient(top, #267dde, #1262bc);
+    background: -ms-linear-gradient(top, #267dde, #1262bc);
+    background: -o-linear-gradient(top, #267dde, #1262bc);
+    background: linear-gradient(top, #267dde, #1262bc);
+    border: 1px solid #1262bc;
+    border-bottom: 1px solid #267dde;
+    
+			border-radius: 3px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+         -o-border-radius: 3px;
+    
+			box-shadow: inset 0 1px 0 0 #8ab0da;
+    -webkit-box-shadow: 0 1px 0 0 #8ab0da inset;
+       -moz-box-shadow: 0 1px 0 0 #8ab0da inset;
+        -ms-box-shadow: 0 1px 0 0 #8ab0da inset;
+         -o-box-shadow: 0 1px 0 0 #8ab0da inset;
+    color: white;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #0a3464;
+}
+button#buttonNextRow:hover,
+button#buttonGetPrice:hover,
+button#buttonDelRow:hover,
+button.cutPrice:hover {
+    opacity:.85;
+    cursor: pointer;
+}
+button#buttonNextRow:active,
+button#buttonGetPrice:active,
+button#buttonDelRow:active,
+button.cutPrice:active {
+    border: 1px solid #155194;
+			box-shadow: 0 0 10px 5px #0e4380 inset;
+    -webkit-box-shadow: 0 0 10px 5px #0e4380 inset;
+	   -moz-box-shadow: 0 0 10px 5px #0e4380 inset;
+        -ms-box-shadow: 0 0 10px 5px #0e4380 inset;
+         -o-box-shadow: 0 0 10px 5px #0e4380 inset;
+ 
+}
+/* --------------------------- */
+
+#help {
+	position: absolute;
+	top: 70px;
+	left: 300px;
+	width: 600px;
+	height: 250px;
+	background: #F8F5B4;
+	border: 1px solid rgba(38,125,222,0.5);
+	border-radius: 4px;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+	z-index: 100px;
+	-webkit-box-shadow: 0 8px 6px -6px #D1D1D1;
+	   -moz-box-shadow: 0 8px 6px -6px #D1D1D1;
+	        box-shadow: 0 8px 6px -6px #D1D1D1;
+	display: none;
+	cursor: pointer;	
+}
+#help p{
+	padding: 15px;
+	font-size: 0.875em;
+	color: #267dde;
+	text-shadow: 1px 1px 1px #D1D1D1;
+}
+
+p#help-mark{
+	display: inline;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;	
+}

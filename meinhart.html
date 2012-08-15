@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Meinhart - přepočet</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- CONTAINER -->	
+	<div class="container">
+	
+		<!-- HEADER -->	
+		<div class="header">
+				<h1>Meinhart >> elkov</h1>
+				<h2>v 2.2</h2>
+				<p id="help-mark">?</p>
+
+			<!-- CONSTANTS -->
+			<div class="constants">
+				<label for="surchargeCopper">Dopočet Cu</label>
+					<input id="surchargeCopper" type="text" value="">
+					<span class="constants_text"> &nbsp;(€/kg)</span><br />
+					
+				<label for="surchargeAluminium">Dopočet Al</label>
+					<input id="surchargeAluminium" type="text" value="">
+					<span class="constants_text">  &nbsp;(€/kg)</span><br />
+					
+				<label for="euroRate">Kurz </label>
+					<input id="euroRate" type="text" value="">
+					<span class="constants_text">  &nbsp;(€/kč)</span><br />
+					
+				<label for="shipping">Doprava</label>
+					<input id="shipping" type="text" value="">
+					<span class="constants_text">  &nbsp;(%)</span><br />
+					
+				<label for="cutPrice">Cena střihu</label>
+					<input id="cutPrice" type="text" value="">
+					<span class="constants_text">  &nbsp;(€)</span><br />
+					
+			</div><!-- END CONSTANTS-->
+			
+			<button type="button" id="buttonNextRow">Přidej položku</button>			
+			<button type="button" id="buttonDelRow">Smaž položku</button>	
+			
+		</div> <!-- END HEADER -->
+		
+		<div id="separator"></div>
+		<div id="namePlates">
+			<span class="namePlates">Popis</span>
+			<span class="namePlates">EUR/Km</span>
+			<span class="namePlates">Metal Figure</span>
+			<span class="namePlates cutPlate">Délka (m)</span>
+			<span class="namePlates midship"> > 16mm2</span>
+			<span class="namePlates priceArticle">Cena celkem</span>
+			<span class="namePlates pricePlate">Cena</span>
+		</div>
+		<ul class="articleList"></ul>	
+		
+		<br />
+		<button type="button" id="buttonGetPrice">Spočítej</button>
+		<span class="priceTotal"></span>
+		<span class="priceTotalPlate"><b>Cena celkem za nabídku &nbsp; </b></span>
+		
+		<div id="help">
+			<p>Jak to funguje?<br /><br />
+				Pro základní výpočet ceny kabelu za metr, je nutné vyplnit v levé čási Dopočet CU, Al a kurz €.	Ve spodní části je pak nutno vyplnit z nabídky Meinhart cenu kabelu(EUR/Km) a obsah kovu(Metal Figure) a zvolit správný kov(Cu/Al). Položka "Popis" má pouze informativní charakter, při více položkách.<br /><br />
+				V případě, že chceme počítat a zárověň mít ošetřenou cenu o střihy a celkovou cenu, je nutné doplnit položky Doprava a Cena střihu ve vrchní části a ve spodní části políčka Délka a zaškrtnout políčko "> 16mm2" v případě, že se jedná o kabel vetšího průřezu než 16mm2. 
+				</p>
+		</div>
+		
+		
+	</div>	<!-- END CONTAINER -->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="Assets/jquery-1.6.4.min.js"><\/script>')</script>
+	<script src='js/script.js'></script>
+
+
+</body>
+</html>	
