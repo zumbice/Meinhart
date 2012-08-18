@@ -1,17 +1,17 @@
-$(function(){
+jQuery(document).ready(function($){
 	"use strict";
 	function newRow(){
 		var row = "<li class='item'><input type='text' /><input type='text' class='cabelPrice' /><input type='text' class='metalContent' /><select name='metalType'><option value='Cu'>Cu</option><option value='Al'>Al</option></select><input type='text' class='cutPrice' /><input type='checkbox' class='midship' name='midship'><span class='articlePrice priceArticle'></span><span class='articlePrice pricePlate'></span></li>";
-		return row;    
+		return row;
 	}
 
 	// function for dot and comma change
 	var dotToComma = function ( withComa ) {
-		return withComa.replace(/,/, '.'); 
+		return withComa.replace(/,/, '.');
 	};
 	
-	// constructor for total price	
-	function Total(){
+	// constructor for total price
+		function Total(){
 		var totalCost = 0;
 		this.addTotal = function(total){
 			totalCost += parseFloat(total);
@@ -29,8 +29,8 @@ $(function(){
 			cutLength = length,
 			isChecked = check,
 			usrCfg = {
-				surchargeCopper : parseFloat( dotToComma($('input#surchargeCopper').val())),
-				surchargeAluminium : parseFloat( dotToComma($('input#surchargeAluminium').val())),
+				surchargeCopper : parseFloat( dotToComma( $('input#surchargeCopper').val())),
+				surchargeAluminium : parseFloat( dotToComma( $('input#surchargeAluminium').val())),
 				euroRate : parseFloat( dotToComma($('input#euroRate').val())),
 				shipping : parseFloat( dotToComma($('input#shipping').val())) || 0 ,
 				cutPrice : parseFloat( dotToComma($('input#cutPrice').val())) || 0
@@ -103,7 +103,6 @@ $(function(){
 	// delete row
 	$('#buttonDelRow').on("click", function(){
 		var ulLength = $('li.item').length;
-		console.log(ulLength);
 		if( ulLength > 1){
 			$('.item:last').fadeOut(300, function(){
 				$(this).remove();
@@ -115,7 +114,7 @@ $(function(){
 	$('#buttonGetPrice').on("click", function(){
 		var totalCost = new Total();
 			
-		$('li.item').each(function(){ 
+		$('li.item').each(function(){
 			var cabelPrice = parseFloat (dotToComma ( $('input.cabelPrice', this).val())),
 				metalContent =  parseFloat (dotToComma ( $('input.metalContent', this).val())),
 				metalType = dotToComma ( $(':selected', this).val()),
@@ -128,13 +127,13 @@ $(function(){
 				}else if( isNaN(cabelPrice)){
 					$('input.metalContent', this).removeClass("input-error");
 					$('input.cabelPrice', this).addClass("input-error");
-				}else if ( isNaN(metalContent) ){	
+				}else if ( isNaN(metalContent) ){
 					$('input.cabelPrice', this).removeClass("input-error");
 					$('input.metalContent', this).addClass("input-error");
 				}else{
 					var item = new Item(cabelPrice, metalContent, metalType, cutLength, isChecked);
 					$('input.cabelPrice', this).removeClass("input-error");
-					$('input.metalContent', this).removeClass("input-error");	
+					$('input.metalContent', this).removeClass("input-error");
 					
 					var pricePerM = item.getPriceWithShipping(item.getPriceWithCut());
 						$('span.pricePlate', this).html(pricePerM+' Kč/m');
@@ -149,7 +148,7 @@ $(function(){
 				}
 		});
 
-		$('span.priceTotal').html(totalCost.getTotal()+' Kč'); 
+		$('span.priceTotal').html(totalCost.getTotal()+' Kč');
 		
 	});
 	
@@ -167,3 +166,4 @@ $(function(){
 		$('#help').fadeOut(500);
 	});
 });
+
